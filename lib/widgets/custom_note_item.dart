@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class NoteItem extends StatelessWidget {
@@ -7,8 +6,8 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        top: 24,
+      padding: const EdgeInsets.only(
+        top: 14,
         bottom: 24,
         left: 16,
       ),
