@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:note_two/constant.dart';
+import 'package:flutter/widgets.dart';
+
 import 'package:note_two/widgets/custom_appBar.dart';
-import 'package:note_two/widgets/custom_note_item.dart';
+
+import 'package:note_two/widgets/notes_list_view.dart';
 
 class NoteViewBody extends StatelessWidget {
   const NoteViewBody({super.key});
@@ -19,7 +22,7 @@ class NoteViewBody extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          NoteItem(),
+          Expanded(child: NotesListView()),
         ],
       ),
     );
