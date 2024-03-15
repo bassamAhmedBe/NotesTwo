@@ -1,7 +1,14 @@
-class NoteModels {
+import 'package:hive_flutter/adapters.dart';
+part 'note_models.g.dart';
+@HiveType(typeId: 0)
+class NoteModels extends HiveObject {
+  @HiveField(0)
   final String title;
+  @HiveField(1)
   final String subtitle;
+  @HiveField(2)
   final String date;
+  @HiveField(3)
   final int colors;
 
   NoteModels({
