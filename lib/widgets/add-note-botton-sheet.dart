@@ -9,26 +9,29 @@ class AddNoteBottonShet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:const EdgeInsets.all(16),
-      child: BlocConsumer<AddNotesCubitCubit, AddNotesCubitState>(
-        listener: (context, state) {
-          if (state is AddNotesCubitISucces) {
-            Navigator.pop(context);
-          }
+    return BlocProvider(
+      create: (context) => AddNotesCubitCubit(),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: BlocConsumer<AddNotesCubitCubit, AddNotesCubitState>(
+          listener: (context, state) {
+            if (state is AddNotesCubitISucces) {
+              Navigator.pop(context);
+            }
 
-          if (state is AddNotesCubitFailure) {
-            print('error ${state.errorMessage}');
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: state is AddNotesCubitLoading ? true : false,
-            child:const SingleChildScrollView(
-              child:  AddNoteForm(),
-            ),
-          );
-        },
+            if (state is AddNotesCubitFailure) {
+              print('error ${state.errorMessage}');
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+              inAsyncCall: state is AddNotesCubitLoading ? true : false,
+              child: const SingleChildScrollView(
+                child: AddNoteForm(),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
