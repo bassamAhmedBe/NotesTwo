@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:note_two/constant.dart';

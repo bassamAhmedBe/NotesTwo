@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:note_two/cubits/cubit/add_notes_cubit_cubit.dart';
 import 'package:note_two/widgets/Add-note-form.dart';
 
@@ -12,9 +13,20 @@ class AddNoteBottonShet extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: BlocConsumer<AddNotesCubitCubit, AddNotesCubitState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is AddNotesCubitISucces) {
+              Navigator.pop(context);
+            }
+
+            if (state is AddNotesCubitFailure) {
+              print('error ${state.errorMessage}');
+            }
+          },
           builder: (context, state) {
-            return AddNoteForm();
+            return ModalProgressHUD(
+              inAsyncCall: state is AddNotesCubitLoading ? true : false,
+              child:const AddNoteForm(),
+            );
           },
         ),
       ),
