@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:note_two/models/note_models.dart';
 import 'package:note_two/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.note});
+  final NoteModels note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return  const EditNoteView();
+          return const EditNoteView();
         }));
       },
       child: Container(
@@ -19,21 +20,21 @@ class NoteItem extends StatelessWidget {
           left: 16,
         ),
         decoration: BoxDecoration(
-          color: Colors.orange.withOpacity(.8),
+          color: Color(note.colors),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter tips',
-                style: TextStyle(fontSize: 26, color: Colors.black),
+              title: Text(
+                note.title,
+                style: const TextStyle(fontSize: 26, color: Colors.black),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16, bottom: 16),
                 child: Text(
-                  'Build Your Career With Bassam Ahmed',
+                  note.subtitle,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black.withOpacity(.4),
@@ -52,7 +53,7 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                'May 21,2023',
+                note.date,
                 style: TextStyle(
                     color: Colors.black.withOpacity(.4), fontSize: 20),
               ),

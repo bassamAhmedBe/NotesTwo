@@ -12,9 +12,3 @@ final class NotesSuccess extends NotesState {
 
   NotesSuccess(this.notes);
 }
-
-final class NotesFailer extends NotesState {
-  final String errorMessage;
-
-  NotesFailer(this.errorMessage);
-}
