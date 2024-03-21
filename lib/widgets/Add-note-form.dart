@@ -47,10 +47,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLine: 5,
             hintText: 'content',
           ),
-    const      SizedBox(
+          const SizedBox(
             height: 10,
           ),
-      const    ColorListView(),
+          const ColorListView(),
           const SizedBox(
             height: 16,
           ),
@@ -81,10 +81,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
               );
             },
           ),
+       const   SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );
   }
 }
-
-
