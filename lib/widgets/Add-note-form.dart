@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:note_two/cubits/addNotes_cubits/add_notes_cubit_cubit.dart';
 import 'package:note_two/models/note_models.dart';
+import 'package:note_two/widgets/color_listView.dart';
 import 'package:note_two/widgets/custom_button.dart';
 import 'package:note_two/widgets/custom_textfield.dart';
 
@@ -46,6 +47,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLine: 5,
             hintText: 'content',
           ),
+    const      SizedBox(
+            height: 10,
+          ),
+      const    ColorListView(),
           const SizedBox(
             height: 16,
           ),
@@ -81,3 +86,5 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+
